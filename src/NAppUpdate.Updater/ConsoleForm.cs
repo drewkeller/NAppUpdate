@@ -47,6 +47,7 @@ namespace NAppUpdate.Updater
                 Application.DoEvents();
                 System.Threading.Thread.Sleep(100);
             }
+            _keyPresses = 0;
         }
 
         private int _keyPresses;

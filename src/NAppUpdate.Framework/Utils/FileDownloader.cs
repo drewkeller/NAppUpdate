@@ -10,6 +10,7 @@ namespace NAppUpdate.Framework.Utils
         private readonly Uri _uri;
     	private readonly int _bufferSize = 1024;
     	public IWebProxy Proxy { get; set; }
+        public ICredentials Credentials { get; set; }
 
     	public FileDownloader()
     	{
@@ -42,6 +43,7 @@ namespace NAppUpdate.Framework.Utils
         {
         	var request = WebRequest.Create(_uri);
 			request.Proxy = Proxy;
+            request.Credentials = Credentials;
 
 			using (var response = request.GetResponse())
 			using (var tempFile = File.Create(tempLocation))

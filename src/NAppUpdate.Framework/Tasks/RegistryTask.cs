@@ -63,9 +63,11 @@ namespace NAppUpdate.Framework.Tasks
 			set { _updateConditions = value; }
 		}
 
-    	public event ReportProgressDelegate OnProgress;
+        #pragma warning disable 67
+        public event ReportProgressDelegate OnProgress;
+        #pragma warning restore 67
 
-    	public bool Prepare(Sources.IUpdateSource source)
+        public bool Prepare(Sources.IUpdateSource source)
         {
             // No preparation required
             return true;

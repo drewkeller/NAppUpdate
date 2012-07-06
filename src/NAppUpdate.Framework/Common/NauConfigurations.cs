@@ -41,6 +41,24 @@ namespace NAppUpdate.Framework.Common
 		/// </summary>
 		public string UpdateExecutableName { get; set; }
 
+        /// <summary>
+        /// The icon used by the updater application, available as a stream.
+        /// </summary>
+        public Stream UpdateExecutableIconStream {
+            get
+            {
+                return _updateExecutableIconStream ??
+                    System.Reflection.Assembly.GetExecutingAssembly().GetManifestResourceStream("NAppUpdate.Framework.updateicon.ico");
+            }
+            // TODO: Apply this to the updater app somehow
+            /*
+            set { 
+                _updateExecutableIconStream = value; 
+            }
+             * */
+        }
+        Stream _updateExecutableIconStream = null;
+
 		/// <summary>
 		/// A list of files (relative paths only) to be copied along with the NAppUpdate DLL and updater host
 		/// when performing cold updates. You need to set this only when you have a custom IUpdateTask that
